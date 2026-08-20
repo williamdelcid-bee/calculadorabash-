@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Verificar si 'bc' está instalado
+
 if ! command -v bc &> /dev/null; then
     echo "Error: Se requiere 'bc' para esta calculadora."
     exit 1
@@ -9,7 +9,7 @@ fi
 SCALE=4
 HISTORIAL="historial_calc.txt"
 
-# FUNCIÓN PARA DIBUJAR LA INTERFAZ VISUAL
+
 mostrar_menu() {
     echo "======================================"
     echo "     Calculadora Científica           "
@@ -24,7 +24,7 @@ mostrar_menu() {
     echo "======================================"
 }
 
-# Mostrar la interfaz al arrancar por primera vez
+
 clear
 mostrar_menu
 
@@ -40,14 +40,14 @@ while true; do
         continue
     fi
 
-    # COMANDO CLS: Limpia pantalla Y vuelve a mostrar la interfaz visual
+    
     if [[ "$expr" == "cls" || "$expr" == "clear" ]]; then
         clear
         mostrar_menu
         continue
     fi
 
-    # Comando para ver el historial
+    
     if [[ "$expr" == "historial" || "$expr" == "h" ]]; then
         echo "--- Historial ---"
         if [[ -f "$HISTORIAL" ]]; then
@@ -59,7 +59,7 @@ while true; do
         continue
     fi
 
-    # Comando para borrar el historial
+   
     if [[ "$expr" == "limpiar" || "$expr" == "borrar" ]]; then
         if [[ -f "$HISTORIAL" ]]; then
             rm "$HISTORIAL"
